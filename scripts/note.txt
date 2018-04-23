@@ -1,1 +1,3 @@
 ﻿tất cả script đều chạy trên webserver
+các script này là các script mẫu chung, em test trên webserver1 trước sao đó chạy automation chép qua các webserver khác
+rồi sửa lại script 1 chút cho đúng thông tin
