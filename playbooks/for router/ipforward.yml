@@ -1,0 +1,33 @@
+- hosts: localhost
+  remote_user: root
+  
+  tasks:
+  
+  - name: Enable IP Forward
+    sysctl: 
+         name: net.ipv4.ip_forward
+         value: 1
+         sysctl_set: yes
+         state: present
+         reload: yes
+
+  - name: Set iptables (nat ens33)
+    iptables:
+        table: nat
+        chain: POSTROUTING
+        out_interface: ens33
+        jump: MASQUERADE
+        
+  - name: Set iptables (ens39)
+    iptables:
+        chain: FORWARD
+        in_interface: ens39
+        ctstate: ESTABLISHED,RELATED
+        jump: ACCEPT 
+     
+  - name: Set iptables (ens39)
+    iptables:
+        chain: FORWARD
+        in_interface: ens39
+        jump: ACCEPT   
+         

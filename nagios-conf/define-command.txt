@@ -1,0 +1,6 @@
+﻿define command{
+        command_name  no-report
+        command_line  $USER1$/check_dummy 2 "No data is reported"
+}
+
+# nếu quá ngưỡng freshness, passive check service sẽ chạy lệnh này

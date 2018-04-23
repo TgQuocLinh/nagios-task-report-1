@@ -1,0 +1,9 @@
+- hosts: webservers
+  remote_user: root
+  
+  tasks:
+  
+  - name: Install NSCA Client
+    apt: 
+        name: nsca-client
+        state: present

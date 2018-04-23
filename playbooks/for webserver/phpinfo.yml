@@ -1,0 +1,14 @@
+- hosts: webservers
+  remote_user: root
+  
+  tasks:
+  
+  - name: Create phpinfo page
+    copy: 
+         content: "<?php phpinfo(); ?>"
+         dest: /var/www/html/info.php
+
+  - name: Reload apache
+    service:
+         name: apache2
+         state: reloaded

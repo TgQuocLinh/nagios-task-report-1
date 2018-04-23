@@ -1,0 +1,18 @@
+- hosts: webservers
+  remote_user: root
+  
+  tasks:
+  
+  - name: Add cron job
+    cron:
+       hour: "*/2"
+       job: "{{item}}"
+    with_items:
+       - "/usr/lib/nagios/plugins/check_sda1_passv.sh >/dev/null 2>&1"
+       - "/usr/lib/nagios/plugins/check_cpu_passv.sh >/dev/null 2>&1"
+       - "/usr/lib/nagios/plugins/check_mem_passv.sh >/dev/null 2>&1"
+
+  - name: Restart cron service
+    service:
+        name: cron
+        state: restarted

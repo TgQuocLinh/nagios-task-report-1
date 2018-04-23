@@ -1,0 +1,17 @@
+- hosts: webservers
+  remote_user: root
+  
+  tasks:
+  
+  - name: Enable IP Forward
+    sysctl: 
+         name: net.ipv4.ip_forward
+         value: 1
+         sysctl_set: yes
+         state: present
+         reload: yes
+ 
+  - name: Restart networking service
+    service:
+        name: networking
+        state: restarted

@@ -1,0 +1,22 @@
+- hosts: webservers
+  remote_user: root
+  
+  tasks:
+  
+  - name: Copy check disk script
+    copy:
+       src: /check_sda1_passv.sh
+       dest: /usr/lib/nagios/plugins/check_sda1_passv.sh
+       mode: g+x
+
+  - name: Copy check cpu script
+    copy:
+       src: /check_cpu_passv.sh
+       dest: /usr/lib/nagios/plugins/check_cpu_passv.sh
+       mode: g+x
+
+  - name: Copy check memory script
+    copy:
+       src: /check_mem_passv.sh
+       dest: /usr/lib/nagios/plugins/check_mem_passv.sh
+       mode: g+x

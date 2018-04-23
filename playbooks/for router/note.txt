@@ -1,0 +1,2 @@
+﻿dùng để forward cho 2 mạng 192.168.85.0 (nagios server) và 192.168.10.0 (webservers)
+mạng 192.168.10.0 (webservers) có thể ra internet thông qua router này
